@@ -1,7 +1,7 @@
 from django.shortcuts import render,redirect
 from django.contrib import messages
 from store.forms import CustomUserForm
-from django.contrib.auth import authenticate
+from django.contrib.auth import authenticate,login
 # Create your views here.
 
 def signup (request):
@@ -20,3 +20,22 @@ def signup (request):
         # form_details = CustomUserForm
     context = {'form' : form_details}
     return render(request,"signup.html", context)
+
+def login_view(request):
+    if request.method == 'POST':
+        name = request.POST.get('username')
+        pswrd = request.POST.get('password')
+        
+        user = authenticate(request, username=name, password=pswrd )
+        
+        if user is not None:
+            login(request, user)
+            messages.success(request, "logged in succesfully")
+            return redirect("/")
+        else:
+            messages.success(request, "invalid credentials")
+            return redirect('login')
+    return render(request, 'login.html')
+
+
+

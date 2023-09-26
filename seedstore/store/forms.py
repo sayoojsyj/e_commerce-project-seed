@@ -11,7 +11,7 @@ from django import forms
         
         
 class CustomUserForm(UserCreationForm):
-    phone_number = forms.CharField(max_length=15)  # Adjust max_length as needed
+    phone_number = forms.CharField(max_length=15)  
     username = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control my-2','placeholder':'enter a username '}))
     email = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control my-2','placeholder':'enter email '}))
     password1 = forms.CharField(widget=forms.PasswordInput(attrs={'class':'form-control my-2','placeholder':'enter password '}))

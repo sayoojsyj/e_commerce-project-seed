@@ -20,11 +20,11 @@
                             <form action="" method="POST">
                                 {% csrf_token %}
                                 <div class="text-center">
-                                    {% comment %} <h4>Signup Form</h4> {% endcomment %}
+                                    
                                     <p class="text-center h1 fw-bold ">Signup Form</p>
-                                </div>
-                                <hr style="height:2px;border-width:2px;color:red;background-color:red">
-                                <div class="form-group">
+                                </div> <br>
+            
+                                <div class="form-group mb-0">
                                     <label for="">Username :</label>
                                     {{form.username}}
                                     {% if form.errors.username %}

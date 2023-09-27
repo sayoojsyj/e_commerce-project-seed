@@ -30,5 +30,5 @@ def index(request):
 #         return redirect('login')
 #     return render(request, 'signup.html')
 
-def loginn(request):
-    return render(request, 'login.html')
+# def loginn(request):
+#     return render(request, 'login.html')

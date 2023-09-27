@@ -26,6 +26,6 @@ class CustomUserForm(UserCreationForm):
         phone_number = self.cleaned_data['phone_number']
         
         # conditions for phn num validation
-        if not phone_number.isdigit():
-            raise forms.ValidationError("Phone number must contain only digits.")
+        if not phone_number.isdigit() or len(phone_number) < 10 or len(phone_number) > 13 :
+            raise forms.ValidationError("invalid phone number.")
         return phone_number
